@@ -3,10 +3,10 @@
   <FileVersion>3.0</FileVersion>
   <Workspace>
     <WorkspaceType>Single-project</WorkspaceType>
-    <WorkspacePath>C:\Users\vakluchev\Documents\GitHub\SDK_Keyboard\</WorkspacePath>
+    <WorkspacePath>C:\Users\Max\Dropbox\embeddedSystems\timer\SDK-1.1M\SDK_Keyboard\</WorkspacePath>
     <underRoot>true</underRoot>
     <TrustZone>0</TrustZone>
-    <HAL_Driver>C:\Users\vakluchev\STM32Cube\Repository\STM32Cube_FW_F4_V1.24.2</HAL_Driver>
+    <HAL_Driver>C:\Users\Max\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1</HAL_Driver>
     <CMSIS>Drivers/CMSIS</CMSIS>
     <Toolchain>STM32CubeIDE</Toolchain>
     <IocFile>SDK_Keyboard.ioc</IocFile>
@@ -16,7 +16,28 @@
       <Secure/>
       <filestoremove>
         <file>
-          <name>Src\tim.c</name>
+          <name>gpio.h</name>
+        </file>
+        <file>
+          <name>..\Src\custom.c</name>
+        </file>
+        <file>
+          <name>i2c.h</name>
+        </file>
+        <file>
+          <name>tim.h</name>
+        </file>
+        <file>
+          <name>usart.h</name>
+        </file>
+        <file>
+          <name>stm32f4xx_it.h</name>
+        </file>
+        <file>
+          <name>stm32f4xx_hal_conf.h</name>
+        </file>
+        <file>
+          <name>main.h</name>
         </file>
       </filestoremove>
       <sourceEntriesToRemove>
@@ -35,12 +56,13 @@
             <memory access="xrw" name="CCMRAM" size="64" start="0x10000000"/>
             <memory access="rx" name="FLASH" size="1024" start="0x8000000"/>
           </memories>
-          <startup>C:\Users\vakluchev\STM32Cube\Repository\STM32Cube_FW_F4_V1.24.2\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\gcc\startup_stm32f407xx.s</startup>
+          <startup>C:\Users\Max\STM32Cube\Repository\STM32Cube_FW_F4_V1.27.1\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\gcc\startup_stm32f407xx.s</startup>
           <LinkSettings>
             <LinkAdditionalLibs/>
           </LinkSettings>
           <heapSize>0x200</heapSize>
           <stackSize>0x400</stackSize>
+          <cpuclock>168</cpuclock>
           <board>custom</board>
           <debugprobe>jtag</debugprobe>
           <optimization/>
