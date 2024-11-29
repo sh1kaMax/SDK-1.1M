@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -57,6 +58,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 void KB_Test( void );
 void OLED_KB( uint8_t OLED_Keys[]);
@@ -116,6 +118,13 @@ int main(void)
 
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -248,11 +257,6 @@ void OLED_KB( uint8_t OLED_Keys[3]) {
 		oled_SetCursor(50 - (i * 10), 10);
 		oled_WriteChar(OLED_Keys[i], Font_7x10, White);
 	}
-	oled_UpdateScreen();
-}
-void oled_Reset( void ) {
-	oled_Fill(Black);
-	oled_SetCursor(0, 0);
 	oled_UpdateScreen();
 }
 /* USER CODE END 4 */

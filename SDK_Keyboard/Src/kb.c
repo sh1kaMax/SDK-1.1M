@@ -40,7 +40,7 @@ uint8_t Check_Row() {
 	if( ret != HAL_OK ) {
 		UART_Transmit((uint8_t*)"Error write init\n");
 	}
-	while (Nkey == 0x00) {
+//	while (Nkey == 0x00) {
 		for (int i = 0; i <= 4; i++) {
 			buf = Rows[i];
 			ret = PCA9538_Write_Register(KBRD_ADDR, CONFIG, &buf);
@@ -111,7 +111,7 @@ uint8_t Check_Row() {
 				break;
 			}
 		}
-	}
+
 
 	return Nkey;
 }

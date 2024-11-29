@@ -33,5 +33,6 @@ void oled_DrawPixel(uint8_t x, uint8_t y, OLED_COLOR color);
 char oled_WriteChar(char ch, FontDef Font, OLED_COLOR color);
 char oled_WriteString(char* str, FontDef Font, OLED_COLOR color);
 void oled_SetCursor(uint8_t x, uint8_t y);
+void oled_Reset( void );
 
 #endif

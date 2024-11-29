@@ -10,6 +10,12 @@ static void oled_WriteCommand(uint8_t command) {
 	HAL_I2C_Mem_Write(&hi2c1,OLED_I2C_ADDR,0x00,1,&command,1,10);
 }
 
+void oled_Reset( void ) {
+	oled_Fill(Black);
+	oled_SetCursor(0, 0);
+	oled_UpdateScreen();
+}
+
 
 uint8_t oled_Init(void) {
 	HAL_Delay(100);
